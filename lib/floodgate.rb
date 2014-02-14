@@ -6,14 +6,14 @@ module Floodgate
       @app = app
     end
 
-    def filter_traffic?(env)
-      !env['FLOODGATE_FILTER_TRAFFIC'].nil?
+    def filter_traffic?
+      !ENV['FLOODGATE_FILTER_TRAFFIC'].nil?
     end
 
     def call(env)
-      return @app.call(env) unless filter_traffic?(env)
+      return @app.call(env) unless filter_traffic?
 
-      if maintenance_url = env['MAINTENANCE_PAGE_URL']
+      if maintenance_url = ENV['MAINTENANCE_PAGE_URL']
         [307, { 'Location' => maintenance_url }, []]
       else
         [503, {}, ['Application Unavailable']]
