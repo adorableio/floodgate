@@ -6,11 +6,11 @@ require 'floodgate/version'
 Gem::Specification.new do |spec|
   spec.name          = 'floodgate'
   spec.version       = Floodgate::VERSION
-  spec.authors       = ['Mark McEahern']
-  spec.email         = ['mark@mceahern.com']
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ''
+  spec.authors       = ['Mark McEahern', 'Jim Remsik']
+  spec.email         = ['mark@adorable.io', 'jim@adorable.io']
+  spec.description   = %q{floodgate helps you control access to your app}
+  spec.summary       = %q{floodgate helps you control access to your app}
+  spec.homepage      = 'http://github.com/adorableio/floodgate'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
