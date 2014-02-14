@@ -13,8 +13,9 @@ module Floodgate
       end
 
       context 'when the floodgate is closed' do
-        let(:filter_traffic) { true }
-        let(:control) { described_class.new(app, filter_traffic) }
+        before { env['FLOODGATE_FILTER_TRAFFIC'] = 'closed' }
+
+        let(:control) { described_class.new(app) }
 
         it 'does not send :call to the app' do
           expect(app).not_to receive(:call).with(env)
