@@ -1,4 +1,4 @@
-require "floodgate/version"
+require 'floodgate/version'
 
 module Floodgate
   # Your code goes here...
