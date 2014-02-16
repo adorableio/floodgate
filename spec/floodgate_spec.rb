@@ -73,6 +73,14 @@ module Floodgate
     end
 
     describe '#redirect_url' do
+      it 'assumes described_class is Floodgate::Control' do
+        expect(described_class).to eq(Floodgate::Control)
+      end
+
+      it 'exists as a method' do
+        expect(control).to respond_to(:redirect_url)
+      end
+
       it 'is nil when not specified' do
         expect(control.redirect_url).to eq(nil)
       end
