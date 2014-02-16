@@ -74,7 +74,7 @@ module Floodgate
 
     describe '#redirect_url' do
       it 'exists as a method' do
-        expect(control).to respond_to(:redirect_url)
+        expect(control.methods - Object.methods).to include(:redirect_url)
       end
 
       it 'is nil when not specified' do
