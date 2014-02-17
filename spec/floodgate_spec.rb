@@ -7,13 +7,13 @@ module Floodgate
     let(:env) { Hash.new }
 
     before do
-      ENV['FLOODGATE_FILTER_TRAFFIC'] = ''
-      ENV['MAINTENANCE_PAGE_URL'] = ''
+      ENV.delete('FLOODGATE_FILTER_TRAFFIC')
+      ENV.delete('MAINTENANCE_PAGE_URL')
     end
 
     after do
-      ENV['FLOODGATE_FILTER_TRAFFIC'] = ''
-      ENV['MAINTENANCE_PAGE_URL'] = ''
+      ENV.delete('FLOODGATE_FILTER_TRAFFIC')
+      ENV.delete('MAINTENANCE_PAGE_URL')
     end
 
     describe '#call' do
@@ -103,8 +103,6 @@ module Floodgate
         it 'returns the maintenance page url' do
           expect(control.redirect_url).to eq('someurl')
         end
-
-        after { ENV['MAINTENANCE_PAGE_URL'] = '' }
       end
     end
   end
