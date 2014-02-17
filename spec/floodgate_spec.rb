@@ -72,11 +72,29 @@ module Floodgate
       end
     end
 
-    describe '#redirect_url' do
-      it 'exists as a method' do
-        expect(control.methods - Object.methods).to include(:redirect_url)
+    describe '#redirect?' do
+      it 'is false by default' do
+        expect(control.redirect?).to eq(false)
       end
 
+      context 'when the redirect url is an empty string' do
+        before { control.stub(:redirect_url).and_return '' }
+
+        it 'is false' do
+          expect(control.redirect?).to eq(false)
+        end
+      end
+
+      context 'when the redirect url is a string' do
+        before { control.stub(:redirect_url).and_return 'someurl' }
+
+        it 'is true' do
+          expect(control.redirect?).to eq(true)
+        end
+      end
+    end
+
+    describe '#redirect_url' do
       it 'is nil when not specified' do
         expect(control.redirect_url).to eq(nil)
       end

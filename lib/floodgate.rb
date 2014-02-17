@@ -20,6 +20,10 @@ module Floodgate
       !ENV['FLOODGATE_FILTER_TRAFFIC'].nil?
     end
 
+    def redirect?
+      !(redirect_url.nil? || redirect_url == '')
+    end
+
     def redirect_url
       ENV['MAINTENANCE_PAGE_URL']
     end
