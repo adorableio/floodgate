@@ -7,13 +7,13 @@ module Floodgate
     let(:env) { Hash.new }
 
     before do
-      ENV['FLOODGATE_FILTER_TRAFFIC'] = nil
-      ENV['MAINTENANCE_PAGE_URL'] = nil
+      ENV['FLOODGATE_FILTER_TRAFFIC'] = ''
+      ENV['MAINTENANCE_PAGE_URL'] = ''
     end
 
     after do
-      ENV['FLOODGATE_FILTER_TRAFFIC'] = nil
-      ENV['MAINTENANCE_PAGE_URL'] = nil
+      ENV['FLOODGATE_FILTER_TRAFFIC'] = ''
+      ENV['MAINTENANCE_PAGE_URL'] = ''
     end
 
     describe '#call' do
@@ -33,6 +33,8 @@ module Floodgate
         end
 
         context 'when no maintenance page is specified in the environment' do
+          before { ENV['MAINTENANCE_PAGE_URL'] = '' }
+
           it 'responds with a status of service unavailable' do
             expect(control.call(env)[0]).to eq(503)
           end
@@ -95,10 +97,6 @@ module Floodgate
     end
 
     describe '#redirect_url' do
-      it 'is nil when not specified' do
-        expect(control.redirect_url).to eq(nil)
-      end
-
       context 'when a maintenance page is specified in the environment' do
         before { ENV['MAINTENANCE_PAGE_URL'] = 'someurl' }
 
@@ -106,7 +104,7 @@ module Floodgate
           expect(control.redirect_url).to eq('someurl')
         end
 
-        after { ENV['MAINTENANCE_PAGE_URL'] = nil }
+        after { ENV['MAINTENANCE_PAGE_URL'] = '' }
       end
     end
   end

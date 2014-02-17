@@ -9,15 +9,15 @@ module Floodgate
     def call(env)
       return @app.call(env) unless filter_traffic?
 
-      if redirect_url.nil?
-        [503, {}, ['Application Unavailable']]
-      else
+      if redirect?
         [307, { 'Location' => redirect_url }, []]
+      else
+        [503, {}, ['Application Unavailable']]
       end
     end
 
     def filter_traffic?
-      !ENV['FLOODGATE_FILTER_TRAFFIC'].nil?
+      !(ENV['FLOODGATE_FILTER_TRAFFIC'].nil? || ENV['FLOODGATE_FILTER_TRAFFIC'] == '')
     end
 
     def redirect?
