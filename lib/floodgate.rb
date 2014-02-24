@@ -2,12 +2,13 @@ require 'floodgate/version'
 
 module Floodgate
   class Control
-    def initialize(app)
+    def initialize(app, config)
       @app = app
+      @config = config
     end
 
     def call(env)
-      return @app.call(env) unless filter_traffic?
+      return @app.call(env) unless filter_traffic?(env)
 
       if redirect?
         [307, { 'Location' => redirect_url }, []]
@@ -16,17 +17,17 @@ module Floodgate
       end
     end
 
-    def filter_traffic?
-      !(ENV['FLOODGATE_FILTER_TRAFFIC'].nil? || ENV['FLOODGATE_FILTER_TRAFFIC'] == '')
+    def filter_traffic?(env)
+      config.filter_traffic?(env)
     end
 
     def redirect?
-      !(redirect_url.nil? || redirect_url == '')
+      config.redirect?
     end
 
     def redirect_url
-      ENV['MAINTENANCE_PAGE_URL']
+      config.redirect_url
     end
-
   end
 end
+
