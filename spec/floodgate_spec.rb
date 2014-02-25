@@ -3,18 +3,11 @@ require 'spec_helper'
 module Floodgate
   describe Control do
     let(:app) { double().as_null_object }
-    let(:control) { described_class.new(app) }
+    let(:control) { described_class.new(app, config) }
     let(:env) { Hash.new }
-
-    before do
-      ENV.delete('FLOODGATE_FILTER_TRAFFIC')
-      ENV.delete('MAINTENANCE_PAGE_URL')
-    end
-
-    after do
-      ENV.delete('FLOODGATE_FILTER_TRAFFIC')
-      ENV.delete('MAINTENANCE_PAGE_URL')
-    end
+    let(:config) { Config.new(filter_traffic, redirect_url) }
+    let(:filter_traffic) { false }
+    let(:redirect_url) { 'some thing' }
 
     describe '#call' do
       it 'sends :call to the app with the specified environment' do
@@ -23,17 +16,15 @@ module Floodgate
       end
 
       context 'when the floodgate is closed' do
-        before { ENV['FLOODGATE_FILTER_TRAFFIC'] = 'closed' }
-
-        let(:control) { described_class.new(app) }
+        let(:filter_traffic) { true }
 
         it 'does not send :call to the app' do
           expect(app).not_to receive(:call).with(env)
           control.call(env)
         end
 
-        context 'when no maintenance page is specified in the environment' do
-          before { ENV['MAINTENANCE_PAGE_URL'] = '' }
+        context 'when no redirect url is specified' do
+          let(:redirect_url) { nil }
 
           it 'responds with a status of service unavailable' do
             expect(control.call(env)[0]).to eq(503)
@@ -44,8 +35,8 @@ module Floodgate
           end
         end
 
-        context 'when a maintenance page is specified in the environment' do
-          before { ENV['MAINTENANCE_PAGE_URL'] = 'someurl' }
+        context 'when a redirect url is specified' do
+          let(:redirect_url) { 'someurl' }
 
           it 'redirects with a temporary redirect status' do
             expect(control.call(env)[0]).to eq(307)
@@ -59,50 +50,23 @@ module Floodgate
     end
 
     describe '#filter_traffic?' do
-      it 'returns false by default' do
-        expect(control.filter_traffic?).to eq(false)
-      end
-
-      context 'when traffic filtering is enabled in the environment' do
-        before { ENV['FLOODGATE_FILTER_TRAFFIC'] = 'closed' }
-
-        it 'returns true' do
-          expect(control.filter_traffic?).to eq(true)
-        end
-
-        after { ENV['FLOODGATE_FILTER_TRAFFIC'] = nil }
+      it 'delegates to config' do
+        expect(config).to receive(:filter_traffic?).with(env).and_return 'some boolean value'
+        expect(control.filter_traffic?(env)).to eq 'some boolean value'
       end
     end
 
     describe '#redirect?' do
-      it 'is false by default' do
-        expect(control.redirect?).to eq(false)
-      end
-
-      context 'when the redirect url is an empty string' do
-        before { control.stub(:redirect_url).and_return '' }
-
-        it 'is false' do
-          expect(control.redirect?).to eq(false)
-        end
-      end
-
-      context 'when the redirect url is a string' do
-        before { control.stub(:redirect_url).and_return 'someurl' }
-
-        it 'is true' do
-          expect(control.redirect?).to eq(true)
-        end
+      it 'delegates to config' do
+        expect(config).to receive(:redirect?).and_return 'some boolean value'
+        expect(control.redirect?).to eq 'some boolean value'
       end
     end
 
     describe '#redirect_url' do
-      context 'when a maintenance page is specified in the environment' do
-        before { ENV['MAINTENANCE_PAGE_URL'] = 'someurl' }
-
-        it 'returns the maintenance page url' do
-          expect(control.redirect_url).to eq('someurl')
-        end
+      it 'delegates to config' do
+        expect(config).to receive(:redirect_url).and_return 'someurl'
+        expect(control.redirect_url).to eq 'someurl'
       end
     end
   end
