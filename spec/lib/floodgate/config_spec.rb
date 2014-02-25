@@ -2,20 +2,22 @@ require 'spec_helper'
 
 module Floodgate
   describe Config do
-    context 'when no arguments are specified' do
-      let(:config) { Config.new }
+    before { Client.stub(:status).and_return json }
 
-      it 'defaults filter_traffic to false' do
-        expect(config.filter_traffic).to be_false
-      end
-
-      it 'defaults redirect_url to nil' do
-        expect(config.redirect_url).to be_nil
-      end
+    let(:json) do
+      {
+        'filter_traffic' => filter_traffic,
+        'redirect_url' => redirect_url
+      }
     end
 
+    let(:filter_traffic) { false }
+    let(:redirect_url) { nil }
+    let(:app_id) { 'abc123' }
+    let(:api_token) { 'def456' }
+    let(:config) { Config.new(app_id, api_token) }
+
     context 'when redirect_url is an empty string' do
-      let(:config) { Config.new(filter_traffic, redirect_url) }
       let(:filter_traffic) { false }
       let(:redirect_url) { '' }
 
@@ -27,7 +29,6 @@ module Floodgate
     end
 
     context 'when a redirect_url is specified' do
-      let(:config) { Config.new(filter_traffic, redirect_url) }
       let(:filter_traffic) { false }
       let(:redirect_url) { 'someurl' }
 

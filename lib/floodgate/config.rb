@@ -1,10 +1,19 @@
+# TODO: Use a real client real soon now, but not now
+require 'open-uri'
+require 'json'
+
 module Floodgate
   class Config
-    attr_accessor :filter_traffic, :redirect_url
+    attr_accessor :app_id, :api_token, :filter_traffic, :redirect_url
 
-    def initialize(filter_traffic = false, redirect_url = nil)
-      @filter_traffic = filter_traffic
-      @redirect_url = redirect_url
+    def initialize(app_id, api_token)
+      @app_id = app_id
+      @api_token = api_token
+
+      json = Client.status(app_id, api_token)
+
+      @filter_traffic = json['filter_traffic']
+      @redirect_url = json['redirect_url']
     end
 
     def redirect?

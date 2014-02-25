@@ -3,11 +3,20 @@ require 'spec_helper'
 module Floodgate
   describe Control do
     let(:app) { double().as_null_object }
-    let(:control) { described_class.new(app, config) }
+    let(:control) { Control.new(app, app_id, api_token) }
     let(:env) { Hash.new }
-    let(:config) { Config.new(filter_traffic, redirect_url) }
+    let(:app_id) { 'abc123' }
+    let(:api_token) { 'def456' }
     let(:filter_traffic) { false }
-    let(:redirect_url) { 'some thing' }
+    let(:redirect_url) { 'something' }
+    let(:json) do
+      {
+        'filter_traffic' => filter_traffic,
+        'redirect_url' => redirect_url
+      }
+    end
+
+    before { Client.stub(:status).and_return json }
 
     describe '#call' do
       it 'sends :call to the app with the specified environment' do
@@ -15,7 +24,7 @@ module Floodgate
         control.call(env)
       end
 
-      context 'when the floodgate is closed' do
+      context 'when the filter_traffic is true' do
         let(:filter_traffic) { true }
 
         it 'does not send :call to the app' do
@@ -51,21 +60,21 @@ module Floodgate
 
     describe '#filter_traffic?' do
       it 'delegates to config' do
-        expect(config).to receive(:filter_traffic?).with(env).and_return 'some boolean value'
+        expect(control.config).to receive(:filter_traffic?).with(env).and_return 'some boolean value'
         expect(control.filter_traffic?(env)).to eq 'some boolean value'
       end
     end
 
     describe '#redirect?' do
       it 'delegates to config' do
-        expect(config).to receive(:redirect?).and_return 'some boolean value'
+        expect(control.config).to receive(:redirect?).and_return 'some boolean value'
         expect(control.redirect?).to eq 'some boolean value'
       end
     end
 
     describe '#redirect_url' do
       it 'delegates to config' do
-        expect(config).to receive(:redirect_url).and_return 'someurl'
+        expect(control.config).to receive(:redirect_url).and_return 'someurl'
         expect(control.redirect_url).to eq 'someurl'
       end
     end

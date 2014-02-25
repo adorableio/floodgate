@@ -2,9 +2,9 @@ module Floodgate
   class Control
     attr_accessor :app, :config
 
-    def initialize(app, config)
+    def initialize(app, app_id, api_token)
       @app = app
-      @config = config
+      @config = Config.new(app_id, api_token)
     end
 
     def call(env)
