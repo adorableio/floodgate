@@ -1,7 +1,3 @@
-# TODO: Use a real client real soon now, but not now
-require 'open-uri'
-require 'json'
-
 module Floodgate
   class Config
     attr_accessor :app_id, :api_token, :filter_traffic, :redirect_url
