@@ -5,12 +5,17 @@ module Floodgate
     let(:app) { double().as_null_object }
     let(:control) { Control.new(app, app_id, api_token) }
     let(:env) { Hash.new }
+
     let(:app_id) { 'abc123' }
     let(:api_token) { 'def456' }
+
+    let(:allowed_ip_addresses) { nil }
     let(:filter_traffic) { false }
     let(:redirect_url) { 'something' }
+
     let(:json) do
       {
+        'allowed_ip_addresses' => allowed_ip_addresses,
         'filter_traffic' => filter_traffic,
         'redirect_url' => redirect_url
       }
