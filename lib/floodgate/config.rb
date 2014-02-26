@@ -1,6 +1,10 @@
 module Floodgate
   class Config
-    attr_accessor :app_id, :api_token, :filter_traffic, :redirect_url
+    attr_accessor \
+      :api_token,
+      :app_id,
+      :filter_traffic,
+      :redirect_url
 
     def initialize(app_id, api_token)
       @app_id = app_id
