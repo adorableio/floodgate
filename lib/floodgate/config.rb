@@ -18,12 +18,18 @@ module Floodgate
       @allowed_ip_addresses = json['allowed_ip_addresses'] || []
     end
 
-    def ip_address_allowed?(ip_address)
-      allowed_ip_addresses.include?(ip_address)
+    def potential_client_addresses(env)
+      %w(REMOTE_ADDR HTTP_X_FORWARDED_FOR).map { |name| env[name] }
+    end
+
+    def client_allowed?(env)
+      !!potential_client_addresses(env).find do |ip_address|
+        allowed_ip_addresses.include?(ip_address)
+      end
     end
 
     def filter_traffic?(env)
-      filter_traffic && !ip_address_allowed?(env['REMOTE_ADDR'])
+      filter_traffic && !client_allowed?(env)
     end
 
     def redirect?

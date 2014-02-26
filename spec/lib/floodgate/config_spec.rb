@@ -20,41 +20,95 @@ module Floodgate
     let(:api_token) { 'def456' }
     let(:config) { Config.new(app_id, api_token) }
 
-    describe '#ip_address_allowed?' do
-      context 'when the allowed ip address list is nil' do
-        let(:allowed_ip_addresses) { nil }
-        let(:ip_address) { '127.0.0.1' }
-
-        it 'is false' do
-          expect(config.ip_address_allowed?(ip_address)).to be_false
+    describe '#client_allowed?' do
+      context 'when the environment specifies the client address in REMOTE_ADDR' do
+        let(:env) do
+          {
+            'REMOTE_ADDR' => ip_address
+          }
         end
-      end
 
-      context 'when the allowed ip address list is empty' do
-        let(:allowed_ip_addresses) { [] }
-        let(:ip_address) { '127.0.0.1' }
+        context 'when the allowed ip address list is nil' do
+          let(:allowed_ip_addresses) { nil }
+          let(:ip_address) { '127.0.0.1' }
 
-        it 'is false' do
-          expect(config.ip_address_allowed?(ip_address)).to be_false
-        end
-      end
-
-      context 'when there are allowed ip addresses' do
-        let(:allowed_ip_addresses) { %w(198.81.129.107) }
-
-        context 'and the specified ip address is in the list' do
-          let(:ip_address) { '198.81.129.107' }
-
-          it 'is true' do
-            expect(config.ip_address_allowed?(ip_address)).to be_true
+          it 'is false' do
+            expect(config.client_allowed?(env)).to be_false
           end
         end
 
-        context 'but the specified ip address is not in the list' do
-          let(:ip_address) { '198.81.129.108' }
+        context 'when the allowed ip address list is empty' do
+          let(:allowed_ip_addresses) { [] }
+          let(:ip_address) { '127.0.0.1' }
 
           it 'is false' do
-            expect(config.ip_address_allowed?(ip_address)).to be_false
+            expect(config.client_allowed?(env)).to be_false
+          end
+        end
+
+        context 'when there are allowed ip addresses' do
+          let(:allowed_ip_addresses) { %w(198.81.129.107) }
+
+          context 'and the specified ip address is in the list' do
+            let(:ip_address) { '198.81.129.107' }
+
+            it 'is true' do
+              expect(config.client_allowed?(env)).to be_true
+            end
+          end
+
+          context 'but the specified ip address is not in the list' do
+            let(:ip_address) { '198.81.129.108' }
+
+            it 'is false' do
+              expect(config.client_allowed?(env)).to be_false
+            end
+          end
+        end
+      end
+
+      context 'when the environment specifies the client address in HTTP_X_FORWARDED_FOR' do
+        let(:env) do
+          {
+            'HTTP_X_FORWARDED_FOR' => ip_address
+          }
+        end
+
+        context 'when the allowed ip address list is nil' do
+          let(:allowed_ip_addresses) { nil }
+          let(:ip_address) { '127.0.0.1' }
+
+          it 'is false' do
+            expect(config.client_allowed?(env)).to be_false
+          end
+        end
+
+        context 'when the allowed ip address list is empty' do
+          let(:allowed_ip_addresses) { [] }
+          let(:ip_address) { '127.0.0.1' }
+
+          it 'is false' do
+            expect(config.client_allowed?(env)).to be_false
+          end
+        end
+
+        context 'when there are allowed ip addresses' do
+          let(:allowed_ip_addresses) { %w(198.81.129.107) }
+
+          context 'and the specified ip address is in the list' do
+            let(:ip_address) { '198.81.129.107' }
+
+            it 'is true' do
+              expect(config.client_allowed?(env)).to be_true
+            end
+          end
+
+          context 'but the specified ip address is not in the list' do
+            let(:ip_address) { '198.81.129.108' }
+
+            it 'is false' do
+              expect(config.client_allowed?(env)).to be_false
+            end
           end
         end
       end
