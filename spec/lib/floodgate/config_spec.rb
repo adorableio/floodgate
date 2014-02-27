@@ -2,7 +2,11 @@ require 'spec_helper'
 
 module Floodgate
   describe Config do
-    before { Client.stub(:status).and_return json }
+    before do
+      Client.stub(:status).and_return json
+      Config.app_id = app_id
+      Config.api_token = api_token
+    end
 
     let(:json) do
       {
@@ -18,7 +22,7 @@ module Floodgate
 
     let(:app_id) { 'abc123' }
     let(:api_token) { 'def456' }
-    let(:config) { Config.new(app_id, api_token) }
+    let(:config) { Config.new }
 
     describe '#client_allowed?' do
       context 'when the environment specifies the client address in REMOTE_ADDR' do
@@ -184,6 +188,29 @@ module Floodgate
           expect(config.redirect?).to be_true
         end
       end
+    end
+
+    describe '.reset' do
+      let(:config) { Config.new }
+      let(:filter_traffic) { true }
+      let(:redirect_url) { 'someurl' }
+
+      it 'sets filter_traffic to nil' do
+        expect{ config.reset }. to change{ config.filter_traffic }.from(true).to(false)
+      end
+
+      it 'sets redirect_url to nil' do
+        expect{ config.reset }. to change{ config.redirect_url }.from('someurl').to(nil)
+      end
+
+      it 'sets api_token to nil' do
+        expect{ Config.reset }. to change{ Config.api_token }.from('def456').to(nil)
+      end
+
+      it 'sets app_id to nil' do
+        expect{ Config.reset }. to change{ Config.app_id }.from('abc123').to(nil)
+      end
+
     end
   end
 end

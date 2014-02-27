@@ -1,17 +1,20 @@
 module Floodgate
   class Config
+    class << self
+      attr_accessor :app_id, :api_token
+
+      def reset
+        @app_id = @api_token = nil
+      end
+    end
+
     attr_accessor \
       :allowed_ip_addresses,
-      :api_token,
-      :app_id,
       :filter_traffic,
       :redirect_url
 
-    def initialize(app_id, api_token)
-      @app_id = app_id
-      @api_token = api_token
-
-      json = Client.status(app_id, api_token)
+    def initialize
+      json = Client.status
 
       @filter_traffic = json['filter_traffic']
       @redirect_url = json['redirect_url']
@@ -34,6 +37,11 @@ module Floodgate
 
     def redirect?
       !redirect_url.nil? && !redirect_url.empty?
+    end
+
+    def reset
+      @redirect_url = nil
+      @filter_traffic = false
     end
   end
 end

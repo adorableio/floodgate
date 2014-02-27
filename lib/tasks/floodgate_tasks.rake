@@ -1,0 +1,45 @@
+namespace :floodgate do
+  desc 'Display the floodgate status'
+  task :status => :environment do
+    puts Floodgate::Client.status
+  end
+
+  desc 'Close the floodgate'
+  task :close => :environment do
+    Floodgate::Client.close
+  end
+
+  desc 'Open the floodgate'
+  task :open => :environment do
+    Floodgate::Client.open
+  end
+
+  desc 'Set the URL floodgate redirects to when filtering traffic'
+  task :set_redirect_url => :environment do
+    redirect_url = ENV['redirect_url']
+
+    Floodgate::Client.set_redirect_url(redirect_url)
+  end
+
+  namespace :ip_address do
+    desc 'Display a list of allowed IP Addresses'
+    task :all => :environment do
+      puts Floodgate::Client.allowed_ip_addresses
+    end
+
+    desc 'Add an IP Address to allow through the floodgate'
+    task :add => :environment do
+      ip_address = ENV['ip_address']
+
+      Floodgate::Client.add_ip_address(ip_address)
+    end
+
+    desc 'Remove an IP Address from the list allowed through the floodgate'
+    task :remove => :environment do
+      ip_address = ENV['ip_address']
+
+      Floodgate::Client.remove_ip_address(ip_address)
+    end
+  end
+end
+

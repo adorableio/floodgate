@@ -18,6 +18,10 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
+  spec.add_runtime_dependency 'faraday', '~> 0.8.9'
+  spec.add_runtime_dependency 'faraday_middleware', '~> 0.9.0'
+  spec.add_runtime_dependency 'hashie', '~> 2.0.5'
+
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec', '~> 2.14'
