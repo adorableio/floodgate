@@ -62,7 +62,7 @@ But, wait! How do we get in to smoke test? You'll need to determine what your IP
 
     $ rake floodgate:ip_address:add_me
 
-Checking its status we see now have an allowed IP address.
+Checking its status we now have an allowed IP address.
 
     $ rake floodgate:status
     allowed_ip_addresses: ["24.240.74.8"]
