@@ -9,11 +9,13 @@ module Floodgate
     let(:app_id) { 'abc123' }
     let(:api_token) { 'def456' }
 
-    let(:allowed_ip_addresses) { nil }
+    let(:allowed_ip_addresses) { [] }
     let(:filter_traffic) { false }
     let(:redirect_url) { 'something' }
 
-    let(:json) do
+    let(:json) { Hashie::Mash.new(raw_json) }
+
+    let(:raw_json) do
       {
         'allowed_ip_addresses' => allowed_ip_addresses,
         'filter_traffic' => filter_traffic,

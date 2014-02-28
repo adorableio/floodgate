@@ -14,11 +14,11 @@ module Floodgate
       :redirect_url
 
     def initialize
-      json = Client.status
+      status = Client.status
 
-      @filter_traffic = json['filter_traffic']
-      @redirect_url = json['redirect_url']
-      @allowed_ip_addresses = json['allowed_ip_addresses'] || []
+      @filter_traffic = status.filter_traffic
+      @redirect_url = status.redirect_url
+      @allowed_ip_addresses = status.allowed_ip_addresses
     end
 
     def potential_client_addresses(env)

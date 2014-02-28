@@ -8,7 +8,9 @@ module Floodgate
       Config.api_token = api_token
     end
 
-    let(:json) do
+    let(:json) { Hashie::Mash.new(raw_json) }
+
+    let(:raw_json) do
       {
         'allowed_ip_addresses' => allowed_ip_addresses,
         'filter_traffic' => filter_traffic,
@@ -30,15 +32,6 @@ module Floodgate
           {
             'REMOTE_ADDR' => ip_address
           }
-        end
-
-        context 'when the allowed ip address list is nil' do
-          let(:allowed_ip_addresses) { nil }
-          let(:ip_address) { '127.0.0.1' }
-
-          it 'is false' do
-            expect(config.client_allowed?(env)).to be_false
-          end
         end
 
         context 'when the allowed ip address list is empty' do
@@ -76,15 +69,6 @@ module Floodgate
           {
             'HTTP_X_FORWARDED_FOR' => ip_address
           }
-        end
-
-        context 'when the allowed ip address list is nil' do
-          let(:allowed_ip_addresses) { nil }
-          let(:ip_address) { '127.0.0.1' }
-
-          it 'is false' do
-            expect(config.client_allowed?(env)).to be_false
-          end
         end
 
         context 'when the allowed ip address list is empty' do
