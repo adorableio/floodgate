@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module Floodgate
-  describe Client do
+  describe Client, :vcr do
     let(:app_id) { '9d2852cff163507330242460c0ca5eec' }
     let(:api_token) { 'f28b5848e158f96e96168aa37f0002f2' }
     let(:status) { Client.status }
@@ -13,11 +13,12 @@ module Floodgate
 
     describe '.add_ip_address' do
       context 'when an ip address is specified' do
-        let(:ip_address) { random_ip_address }
+        let(:ip_address) { '1.1.1.1' }
         let(:params) do
           { ip_address: { ip_address: ip_address } }
         end
 
+        before { Client.remove_ip_address(ip_address) }
         after { Client.remove_ip_address(ip_address) }
 
         it 'adds it to the list of allowed ip addresses' do
@@ -49,7 +50,7 @@ module Floodgate
     end
 
     describe '.allowed_ip_addresses' do
-      let(:ip_address) { random_ip_address }
+      let(:ip_address) { '1.1.1.1' }
 
       before { Client.add_ip_address(ip_address) }
       after { Client.remove_ip_address(ip_address) }
@@ -77,7 +78,7 @@ module Floodgate
 
     describe '.remove_ip_address' do
       context 'when an ip address is specified' do
-        let(:ip_address) { random_ip_address }
+        let(:ip_address) { '1.1.1.1' }
         let(:params) do
           { ip_address: { ip_address: ip_address } }
         end
