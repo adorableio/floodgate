@@ -129,6 +129,15 @@ module Floodgate
       end
     end
 
+    describe '.remove_my_ip_address' do
+      it 'removes my ip address from the list of allowed ip addresses' do
+        expect(Client).to receive(:my_ip_address).and_return '1.1.1.1'
+        expect(Client).to receive(:remove_ip_address).with('1.1.1.1')
+
+        Client.remove_my_ip_address
+      end
+    end
+
     describe '.set_redirect_url' do
       before { Client.set_redirect_url(initial_redirect_url) }
 

@@ -16,6 +16,10 @@ module Floodgate
       add_ip_address(my_ip_address)
     end
 
+    def self.remove_my_ip_address
+      remove_ip_address(my_ip_address)
+    end
+
     def self.allowed_ip_addresses
       status.allowed_ip_addresses
     end
