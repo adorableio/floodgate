@@ -4,7 +4,7 @@
 
 You've spent the last few weeks improving significant portions of your application and you're ready to deploy. The maintenance page goes up, the code is pushed, and doubt creeps in as to whether things are actually working. Did you remember to update those third party keys? Is that very clever code your co-worker wrote working as expected? Is there anything different about your production environment that's going to cause things to fail?
 
-As developers we'd all prefer to live in a world where we're continuously deploying all of our test-driven code all the time. In reality, the process typically looks a little broken. Imagine being able to spend a few minutes with your app smoke testing to make sure everything works. With Floodgate in place you are able to provide access to developers, testers, and the product owner to click through and see things work the way they are supposed to before releasing your product to all of your customers.
+As developers we'd all prefer to live in a world where we're continuously deploying all of our test-driven code all the time. In reality, the process typically looks a little broken. Imagine being able to spend a few minutes with your app smoke testing to make sure everything works. With Floodgate in place you are able to provide access to developers, testers, and the product owner to click through and see things work the way they are supposed to <strong>in production</strong> before releasing your product to all of your customers.
 
 ## Getting Started
 
