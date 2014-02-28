@@ -8,10 +8,7 @@ require 'rspec'
 
 require 'floodgate'
 
-RSpec.configure do |config|
-  config.treat_symbols_as_metadata_keys_with_true_values = true
-  config.filter_run focused: true
-  config.alias_example_to :fit, focused: true
-  config.alias_example_to :pit, pending: true
-  config.run_all_when_everything_filtered = true
-end
+# Requires supporting ruby files with custom matchers and macros, etc,
+# in spec/support/ and its subdirectories.
+Dir[File.expand_path(File.join(__FILE__, '../support/**/*.rb'))].each { |f| require f }
+
