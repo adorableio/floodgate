@@ -1,7 +1,11 @@
 namespace :floodgate do
   desc 'Display the floodgate status'
   task :status => :environment do
-    puts Floodgate::Client.status
+    status = Floodgate::Client.status
+
+    status.each_pair do |key, value|
+      puts "#{key}: #{value}"
+    end
   end
 
   desc 'Close the floodgate'
