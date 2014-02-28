@@ -49,6 +49,15 @@ module Floodgate
       end
     end
 
+    describe '.add_my_ip_address' do
+      it 'adds my ip address to the list of allowed ip addresses' do
+        expect(Client).to receive(:my_ip_address).and_return '1.1.1.1'
+        expect(Client).to receive(:add_ip_address).with('1.1.1.1')
+
+        Client.add_my_ip_address
+      end
+    end
+
     describe '.allowed_ip_addresses' do
       let(:ip_address) { '1.1.1.1' }
 
@@ -65,6 +74,13 @@ module Floodgate
 
       it 'changes filter_traffic from false to true' do
         expect { Client.close }.to change { Client.status.filter_traffic }.from(false).to(true)
+      end
+    end
+
+    describe '.my_ip_address' do
+      it 'is an ip address' do
+        ip_address = Client.my_ip_address
+        expect { IPAddr.new(ip_address, Socket::AF_INET) }.not_to raise_error
       end
     end
 

@@ -12,6 +12,10 @@ module Floodgate
       post('ip_addresses', params)
     end
 
+    def self.add_my_ip_address
+      add_ip_address(my_ip_address)
+    end
+
     def self.allowed_ip_addresses
       status.allowed_ip_addresses
     end
@@ -20,6 +24,13 @@ module Floodgate
       params = { app: { filter_traffic: true } }
 
       put('', params)
+    end
+
+    def self.my_ip_address
+      conn = Faraday.new(url: 'http://curlmyip.com/')
+      response = conn.get('')
+      value = response.body.strip
+      IPAddr.new(value, Socket::AF_INET).to_s
     end
 
     def self.open

@@ -1,0 +1,31 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://curlmyip.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      server:
+      - MochiWeb/1.0 (Any of you quaids got a smint?)
+      date:
+      - Fri, 28 Feb 2014 20:32:56 GMT
+      content-type:
+      - text/plain
+      content-length:
+      - '12'
+    body:
+      encoding: UTF-8
+      string: |
+        24.240.74.8
+    http_version: 
+  recorded_at: Fri, 28 Feb 2014 20:34:13 GMT
+recorded_with: VCR 2.8.0

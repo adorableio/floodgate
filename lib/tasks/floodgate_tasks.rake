@@ -31,6 +31,16 @@ namespace :floodgate do
       puts Floodgate::Client.allowed_ip_addresses
     end
 
+    desc 'Show my IP Address'
+    task :mine do
+      puts Floodgate::Client.my_ip_address
+    end
+
+    desc 'Add my IP Address to the list allowed through the floodgate'
+    task :add_mine => :environment do
+      Floodgate::Client.add_my_ip_address
+    end
+
     desc 'Add an IP Address to allow through the floodgate'
     task :add => :environment do
       ip_address = ENV['ip_address']
