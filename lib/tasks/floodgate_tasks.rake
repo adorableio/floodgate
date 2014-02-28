@@ -32,7 +32,7 @@ namespace :floodgate do
     end
 
     desc 'Show my IP Address'
-    task :mine do
+    task :me do
       puts Floodgate::Client.my_ip_address
     end
 
@@ -44,7 +44,7 @@ namespace :floodgate do
     end
 
     desc 'Add my IP Address to the list allowed through the floodgate'
-    task :add_mine => :environment do
+    task :add_me => :environment do
       Floodgate::Client.add_my_ip_address
     end
 
@@ -56,7 +56,7 @@ namespace :floodgate do
     end
 
     desc 'Remove my IP Address from the list allowed through the floodgate'
-    task :remove_mine => :environment do
+    task :remove_me => :environment do
       Floodgate::Client.remove_my_ip_address
     end
 

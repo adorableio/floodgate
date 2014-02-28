@@ -58,9 +58,9 @@ Now its status includes the redirect URL
 
 When we visit the site (remember to restart Heroku if needed) we are now whisked away to the redirect URl. This is configured as a temporary redirect to minimize the impact from search engine spiders and other crawlers.
 
-But, wait! How do we get in to smoke test? You'll need to determine what your IP address is as interpreted by the outside world. We suggest a service like [http://whatismyipaddress.com/]().
+But, wait! How do we get in to smoke test? You'll need to determine what your IP address is as interpreted by the outside world.
 
-    $ rake floodgate:ip_address:add ip_address=24.240.74.8
+    $ rake floodgate:ip_address:add_me
 
 Checking its status we see now have an allowed IP address.
 
