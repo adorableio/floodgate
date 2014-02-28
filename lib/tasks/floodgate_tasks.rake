@@ -54,6 +54,12 @@ namespace :floodgate do
 
       Floodgate::Client.remove_ip_address(ip_address)
     end
+
+    desc 'Remove my IP Address from the list allowed through the floodgate'
+    task :remove_mine => :environment do
+      Floodgate::Client.remove_my_ip_address
+    end
+
   end
 end
 
