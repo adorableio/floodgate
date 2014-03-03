@@ -2,13 +2,15 @@
 http_interactions:
 - request:
     method: post
-    uri: https://floodgate-api-staging.herokuapp.com/api/v1/apps/9d2852cff163507330242460c0ca5eec/ip_addresses
+    uri: https://floodgate-api-staging.herokuapp.com/api/apps/9d2852cff163507330242460c0ca5eec/ip_addresses
     body:
       encoding: US-ASCII
       string: ip_address%5Bip_address%5D=1.1.1.1&api_token=f28b5848e158f96e96168aa37f0002f2
     headers:
       User-Agent:
       - FloodgateAgent
+      Accept:
+      - application/vnd.floodgate-v1+json
       Content-Type:
       - application/x-www-form-urlencoded
   response:
@@ -21,15 +23,15 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Fri, 28 Feb 2014 17:17:59 GMT
+      - Mon, 03 Mar 2014 20:40:02 GMT
       etag:
       - "\"bbc66f5c6fff2775354263608d971d3a\""
       server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       x-request-id:
-      - 13093d13-9100-4ef4-a217-76ba4df90fa7
+      - c6f846ed-1298-4e51-ba82-53a1d8b2c9b7
       x-runtime:
-      - '0.027374'
+      - '0.022938'
       content-length:
       - '24'
       connection:
@@ -38,16 +40,18 @@ http_interactions:
       encoding: UTF-8
       string: "{\"ip_address\":\"1.1.1.1\"}"
     http_version: 
-  recorded_at: Fri, 28 Feb 2014 17:17:59 GMT
+  recorded_at: Mon, 03 Mar 2014 20:40:02 GMT
 - request:
     method: get
-    uri: https://floodgate-api-staging.herokuapp.com/api/v1/apps/9d2852cff163507330242460c0ca5eec/status?api_token=f28b5848e158f96e96168aa37f0002f2
+    uri: https://floodgate-api-staging.herokuapp.com/api/apps/9d2852cff163507330242460c0ca5eec/status?api_token=f28b5848e158f96e96168aa37f0002f2
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - FloodgateAgent
+      Accept:
+      - application/vnd.floodgate-v1+json
   response:
     status:
       code: 200
@@ -58,15 +62,15 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Fri, 28 Feb 2014 17:17:59 GMT
+      - Mon, 03 Mar 2014 20:40:02 GMT
       etag:
       - "\"56afa4fe0c249466945b8b5763f2a93a\""
       server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       x-request-id:
-      - ad59bc45-9011-4a2c-8ce4-4e0e6960325c
+      - 49a88d9b-58c0-495c-8e9d-11d47f112f3e
       x-runtime:
-      - '0.050096'
+      - '0.011001'
       content-length:
       - '136'
       connection:
@@ -75,16 +79,18 @@ http_interactions:
       encoding: UTF-8
       string: "{\"allowed_ip_addresses\":[\"9.109.14.25\",\"164.249.198.56\",\"1.1.1.1\"],\"filter_traffic\":false,\"name\":\"mutable-test-app\",\"redirect_url\":null}"
     http_version: 
-  recorded_at: Fri, 28 Feb 2014 17:17:59 GMT
+  recorded_at: Mon, 03 Mar 2014 20:40:02 GMT
 - request:
     method: delete
-    uri: https://floodgate-api-staging.herokuapp.com/api/v1/apps/9d2852cff163507330242460c0ca5eec/ip_addresses
+    uri: https://floodgate-api-staging.herokuapp.com/api/apps/9d2852cff163507330242460c0ca5eec/ip_addresses
     body:
       encoding: US-ASCII
       string: ip_address%5Bip_address%5D=1.1.1.1&api_token=f28b5848e158f96e96168aa37f0002f2
     headers:
       User-Agent:
       - FloodgateAgent
+      Accept:
+      - application/vnd.floodgate-v1+json
       Content-Type:
       - application/x-www-form-urlencoded
   response:
@@ -97,15 +103,15 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Fri, 28 Feb 2014 17:17:59 GMT
+      - Mon, 03 Mar 2014 20:40:03 GMT
       etag:
       - "\"23e8cc0c8abfb81d69429dfc9203ea60\""
       server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       x-request-id:
-      - ecd1c836-9334-4ece-8780-273ed97ae795
+      - a88c2da4-8a28-4537-bf64-d61c3432a705
       x-runtime:
-      - '0.073713'
+      - '0.069306'
       content-length:
       - '43'
       connection:
@@ -114,5 +120,5 @@ http_interactions:
       encoding: UTF-8
       string: "{\"ip_addresses\":[{\"ip_address\":\"1.1.1.1\"}]}"
     http_version: 
-  recorded_at: Fri, 28 Feb 2014 17:17:59 GMT
+  recorded_at: Mon, 03 Mar 2014 20:40:03 GMT
 recorded_with: VCR 2.8.0
