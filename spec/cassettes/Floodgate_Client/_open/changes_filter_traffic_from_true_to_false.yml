@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://floodgate-api-staging.herokuapp.com/api/apps/9d2852cff163507330242460c0ca5eec
+    uri: http://staging.api.floodgate.io/api/apps/9d2852cff163507330242460c0ca5eec
     body:
       encoding: US-ASCII
       string: app%5Bfilter_traffic%5D=true&api_token=f28b5848e158f96e96168aa37f0002f2
@@ -23,15 +23,15 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Mon, 03 Mar 2014 20:40:06 GMT
+      - Mon, 03 Mar 2014 20:59:45 GMT
       etag:
       - "\"7771a307c8a2bc95dff054cd3bfcbf9c\""
       server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       x-request-id:
-      - 8a097fa4-ceed-44ca-92ae-b38e7e6bf0ba
+      - 9d47e478-ad37-41ef-9296-b02baef6266d
       x-runtime:
-      - '0.016530'
+      - '0.013881'
       content-length:
       - '125'
       connection:
@@ -40,10 +40,10 @@ http_interactions:
       encoding: UTF-8
       string: "{\"allowed_ip_addresses\":[\"9.109.14.25\",\"164.249.198.56\"],\"filter_traffic\":true,\"name\":\"mutable-test-app\",\"redirect_url\":null}"
     http_version: 
-  recorded_at: Mon, 03 Mar 2014 20:40:07 GMT
+  recorded_at: Mon, 03 Mar 2014 20:59:45 GMT
 - request:
     method: get
-    uri: https://floodgate-api-staging.herokuapp.com/api/apps/9d2852cff163507330242460c0ca5eec/status?api_token=f28b5848e158f96e96168aa37f0002f2
+    uri: http://staging.api.floodgate.io/api/apps/9d2852cff163507330242460c0ca5eec/status?api_token=f28b5848e158f96e96168aa37f0002f2
     body:
       encoding: US-ASCII
       string: ''
@@ -62,15 +62,15 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Mon, 03 Mar 2014 20:40:07 GMT
+      - Mon, 03 Mar 2014 20:59:45 GMT
       etag:
       - "\"7771a307c8a2bc95dff054cd3bfcbf9c\""
       server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       x-request-id:
-      - 965ba7ff-bae3-41f0-bc0b-8afb6ed99b3e
+      - b698a198-78d8-45cc-9414-54c4e31e34aa
       x-runtime:
-      - '0.008855'
+      - '0.008886'
       content-length:
       - '125'
       connection:
@@ -79,10 +79,10 @@ http_interactions:
       encoding: UTF-8
       string: "{\"allowed_ip_addresses\":[\"9.109.14.25\",\"164.249.198.56\"],\"filter_traffic\":true,\"name\":\"mutable-test-app\",\"redirect_url\":null}"
     http_version: 
-  recorded_at: Mon, 03 Mar 2014 20:40:07 GMT
+  recorded_at: Mon, 03 Mar 2014 20:59:45 GMT
 - request:
     method: put
-    uri: https://floodgate-api-staging.herokuapp.com/api/apps/9d2852cff163507330242460c0ca5eec
+    uri: http://staging.api.floodgate.io/api/apps/9d2852cff163507330242460c0ca5eec
     body:
       encoding: US-ASCII
       string: app%5Bfilter_traffic%5D=false&api_token=f28b5848e158f96e96168aa37f0002f2
@@ -103,15 +103,15 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Mon, 03 Mar 2014 20:40:07 GMT
+      - Mon, 03 Mar 2014 20:59:46 GMT
       etag:
       - "\"5dcd96cc7b45b270738601bce30d703f\""
       server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       x-request-id:
-      - 795b59c4-ab2a-4110-9ee2-0e84a2bf8f5b
+      - 428940d4-c448-436a-a2d3-45f710240912
       x-runtime:
-      - '0.018200'
+      - '0.018402'
       content-length:
       - '126'
       connection:
@@ -120,10 +120,10 @@ http_interactions:
       encoding: UTF-8
       string: "{\"allowed_ip_addresses\":[\"9.109.14.25\",\"164.249.198.56\"],\"filter_traffic\":false,\"name\":\"mutable-test-app\",\"redirect_url\":null}"
     http_version: 
-  recorded_at: Mon, 03 Mar 2014 20:40:07 GMT
+  recorded_at: Mon, 03 Mar 2014 20:59:46 GMT
 - request:
     method: get
-    uri: https://floodgate-api-staging.herokuapp.com/api/apps/9d2852cff163507330242460c0ca5eec/status?api_token=f28b5848e158f96e96168aa37f0002f2
+    uri: http://staging.api.floodgate.io/api/apps/9d2852cff163507330242460c0ca5eec/status?api_token=f28b5848e158f96e96168aa37f0002f2
     body:
       encoding: US-ASCII
       string: ''
@@ -142,15 +142,15 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Mon, 03 Mar 2014 20:40:07 GMT
+      - Mon, 03 Mar 2014 20:59:46 GMT
       etag:
       - "\"5dcd96cc7b45b270738601bce30d703f\""
       server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       x-request-id:
-      - 54c6f971-e0ae-4dc7-9b91-f3c959f1740d
+      - 1548c632-bb72-4295-a4d3-b2ce54ff2104
       x-runtime:
-      - '0.012048'
+      - '0.013759'
       content-length:
       - '126'
       connection:
@@ -159,5 +159,5 @@ http_interactions:
       encoding: UTF-8
       string: "{\"allowed_ip_addresses\":[\"9.109.14.25\",\"164.249.198.56\"],\"filter_traffic\":false,\"name\":\"mutable-test-app\",\"redirect_url\":null}"
     http_version: 
-  recorded_at: Mon, 03 Mar 2014 20:40:07 GMT
+  recorded_at: Mon, 03 Mar 2014 20:59:46 GMT
 recorded_with: VCR 2.8.0
