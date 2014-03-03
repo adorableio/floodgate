@@ -105,8 +105,12 @@ module Floodgate
       response.body
     end
 
+    def self.host_name
+      Config.test? ? 'staging.api.floodgate.io' : 'api.floodgate.io'
+    end
+
     def self.base_url
-      "https://floodgate-api-staging.herokuapp.com/api/v1/apps/#{Config.app_id}"
+      "http://#{host_name}/api/apps/#{Config.app_id}"
     end
 
     def self.user_agent
@@ -122,6 +126,7 @@ module Floodgate
         builder.use Faraday::Adapter::NetHttp
       end
 
+      conn.headers[:accept] = 'application/vnd.floodgate-v1+json'
       conn.headers[:user_agent] = user_agent
 
       conn
