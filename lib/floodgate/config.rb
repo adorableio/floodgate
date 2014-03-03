@@ -6,6 +6,10 @@ module Floodgate
       def reset
         @app_id = @api_token = nil
       end
+
+      def test?
+        ENV.has_key?('FLOODGATE_TEST_MODE')
+      end
     end
 
     attr_accessor \
