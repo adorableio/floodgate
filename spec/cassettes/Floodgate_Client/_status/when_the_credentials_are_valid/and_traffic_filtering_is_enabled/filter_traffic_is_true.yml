@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://staging.api.floodgate.io/api/apps/fa5d63bcf3d6b557eee782c9e61e4002/status?api_token=da2f2d06c102eea0f1971c2c90936ee3
+    uri: https://staging-api.floodgate.io/api/apps/fa5d63bcf3d6b557eee782c9e61e4002/status?api_token=da2f2d06c102eea0f1971c2c90936ee3
     body:
       encoding: US-ASCII
       string: ''
@@ -21,15 +21,15 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Mon, 03 Mar 2014 20:59:49 GMT
+      - Mon, 03 Mar 2014 22:38:45 GMT
       etag:
       - "\"dee747427e4c4ad6746155406732f396\""
       server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       x-request-id:
-      - 360a9587-6f6b-46d2-9b82-7af47c874aa7
+      - 68497236-1c06-4629-82f2-5f3b896bc9bb
       x-runtime:
-      - '0.013004'
+      - '0.006353'
       content-length:
       - '112'
       connection:
@@ -38,5 +38,5 @@ http_interactions:
       encoding: UTF-8
       string: "{\"allowed_ip_addresses\":[],\"filter_traffic\":true,\"name\":\"floodgate-gem-filter-traffic-true\",\"redirect_url\":null}"
     http_version: 
-  recorded_at: Mon, 03 Mar 2014 20:59:49 GMT
+  recorded_at: Mon, 03 Mar 2014 22:38:38 GMT
 recorded_with: VCR 2.8.0

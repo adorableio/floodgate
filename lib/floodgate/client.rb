@@ -106,11 +106,11 @@ module Floodgate
     end
 
     def self.host_name
-      Config.test? ? 'staging.api.floodgate.io' : 'api.floodgate.io'
+      Config.test? ? 'staging-api.floodgate.io' : 'api.floodgate.io'
     end
 
     def self.base_url
-      "http://#{host_name}/api/apps/#{Config.app_id}"
+      "https://#{host_name}/api/apps/#{Config.app_id}"
     end
 
     def self.user_agent
