@@ -17,15 +17,15 @@ http_interactions:
       server:
       - MochiWeb/1.0 (Any of you quaids got a smint?)
       date:
-      - Mon, 03 Mar 2014 22:37:19 GMT
+      - Tue, 04 Mar 2014 17:54:09 GMT
       content-type:
       - text/plain
       content-length:
-      - '15'
+      - '14'
     body:
       encoding: UTF-8
       string: |
-        99.126.182.174
+        72.33.147.204
     http_version: 
-  recorded_at: Mon, 03 Mar 2014 22:38:31 GMT
+  recorded_at: Tue, 04 Mar 2014 17:55:23 GMT
 recorded_with: VCR 2.8.0

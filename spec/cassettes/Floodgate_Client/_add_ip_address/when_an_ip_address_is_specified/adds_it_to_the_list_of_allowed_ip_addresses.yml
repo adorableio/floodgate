@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://staging-api.floodgate.io/api/apps/9d2852cff163507330242460c0ca5eec/ip_addresses
+    uri: https://staging-api.floodgate.io/apps/9d2852cff163507330242460c0ca5eec/ip_addresses
     body:
       encoding: US-ASCII
       string: ip_address%5Bip_address%5D=1.1.1.1&api_token=f28b5848e158f96e96168aa37f0002f2
@@ -23,15 +23,15 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Mon, 03 Mar 2014 22:38:33 GMT
+      - Tue, 04 Mar 2014 17:55:24 GMT
       etag:
       - "\"d751713988987e9331980363e24189ce\""
       server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       x-request-id:
-      - 152c11b1-637d-4228-af57-587ee54e250b
+      - 492e37e6-2955-48b1-9def-0c3bb66aa83f
       x-runtime:
-      - '0.011903'
+      - '0.900839'
       content-length:
       - '2'
       connection:
@@ -40,10 +40,10 @@ http_interactions:
       encoding: UTF-8
       string: "[]"
     http_version: 
-  recorded_at: Mon, 03 Mar 2014 22:38:26 GMT
+  recorded_at: Tue, 04 Mar 2014 17:55:19 GMT
 - request:
     method: get
-    uri: https://staging-api.floodgate.io/api/apps/9d2852cff163507330242460c0ca5eec/status?api_token=f28b5848e158f96e96168aa37f0002f2
+    uri: https://staging-api.floodgate.io/apps/9d2852cff163507330242460c0ca5eec/status?api_token=f28b5848e158f96e96168aa37f0002f2
     body:
       encoding: US-ASCII
       string: ''
@@ -62,15 +62,15 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Mon, 03 Mar 2014 22:38:34 GMT
+      - Tue, 04 Mar 2014 17:55:24 GMT
       etag:
       - "\"5dcd96cc7b45b270738601bce30d703f\""
       server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       x-request-id:
-      - e3fa4db9-8441-46b6-baec-e294dede0748
+      - 3cadd839-e2b5-4e34-bad2-89150e56d1aa
       x-runtime:
-      - '0.007545'
+      - '0.048828'
       content-length:
       - '126'
       connection:
@@ -79,10 +79,10 @@ http_interactions:
       encoding: UTF-8
       string: "{\"allowed_ip_addresses\":[\"9.109.14.25\",\"164.249.198.56\"],\"filter_traffic\":false,\"name\":\"mutable-test-app\",\"redirect_url\":null}"
     http_version: 
-  recorded_at: Mon, 03 Mar 2014 22:38:27 GMT
+  recorded_at: Tue, 04 Mar 2014 17:55:20 GMT
 - request:
     method: post
-    uri: https://staging-api.floodgate.io/api/apps/9d2852cff163507330242460c0ca5eec/ip_addresses
+    uri: https://staging-api.floodgate.io/apps/9d2852cff163507330242460c0ca5eec/ip_addresses
     body:
       encoding: US-ASCII
       string: ip_address%5Bip_address%5D=1.1.1.1&api_token=f28b5848e158f96e96168aa37f0002f2
@@ -103,15 +103,15 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Mon, 03 Mar 2014 22:38:34 GMT
+      - Tue, 04 Mar 2014 17:55:25 GMT
       etag:
       - "\"bbc66f5c6fff2775354263608d971d3a\""
       server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       x-request-id:
-      - 708ceb3d-cd0e-401d-b37f-4969fb6e270f
+      - 05d2bc2d-8297-41c5-9eb7-89a9e9f3c7a5
       x-runtime:
-      - '0.021426'
+      - '0.078790'
       content-length:
       - '24'
       connection:
@@ -120,10 +120,10 @@ http_interactions:
       encoding: UTF-8
       string: "{\"ip_address\":\"1.1.1.1\"}"
     http_version: 
-  recorded_at: Mon, 03 Mar 2014 22:38:27 GMT
+  recorded_at: Tue, 04 Mar 2014 17:55:20 GMT
 - request:
     method: get
-    uri: https://staging-api.floodgate.io/api/apps/9d2852cff163507330242460c0ca5eec/status?api_token=f28b5848e158f96e96168aa37f0002f2
+    uri: https://staging-api.floodgate.io/apps/9d2852cff163507330242460c0ca5eec/status?api_token=f28b5848e158f96e96168aa37f0002f2
     body:
       encoding: US-ASCII
       string: ''
@@ -142,27 +142,27 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Mon, 03 Mar 2014 22:38:34 GMT
+      - Tue, 04 Mar 2014 17:55:25 GMT
       etag:
-      - "\"56afa4fe0c249466945b8b5763f2a93a\""
+      - "\"455e0371dd7f786131811e7ba5250560\""
       server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       x-request-id:
-      - f45e8a84-e51d-42dd-b787-2aafe65e8ff4
+      - 782ea7de-b496-4457-bf3b-b334150826cc
       x-runtime:
-      - '0.014362'
+      - '0.013111'
       content-length:
       - '136'
       connection:
       - Close
     body:
       encoding: UTF-8
-      string: "{\"allowed_ip_addresses\":[\"9.109.14.25\",\"164.249.198.56\",\"1.1.1.1\"],\"filter_traffic\":false,\"name\":\"mutable-test-app\",\"redirect_url\":null}"
+      string: "{\"allowed_ip_addresses\":[\"1.1.1.1\",\"9.109.14.25\",\"164.249.198.56\"],\"filter_traffic\":false,\"name\":\"mutable-test-app\",\"redirect_url\":null}"
     http_version: 
-  recorded_at: Mon, 03 Mar 2014 22:38:28 GMT
+  recorded_at: Tue, 04 Mar 2014 17:55:21 GMT
 - request:
     method: delete
-    uri: https://staging-api.floodgate.io/api/apps/9d2852cff163507330242460c0ca5eec/ip_addresses
+    uri: https://staging-api.floodgate.io/apps/9d2852cff163507330242460c0ca5eec/ip_addresses
     body:
       encoding: US-ASCII
       string: ip_address%5Bip_address%5D=1.1.1.1&api_token=f28b5848e158f96e96168aa37f0002f2
@@ -183,15 +183,15 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Mon, 03 Mar 2014 22:38:35 GMT
+      - Tue, 04 Mar 2014 17:55:25 GMT
       etag:
       - "\"23e8cc0c8abfb81d69429dfc9203ea60\""
       server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       x-request-id:
-      - 7dc42577-7ff3-4fab-bee8-64cddb866cf8
+      - b1d78e06-f884-4407-a0e1-e74238a5475e
       x-runtime:
-      - '0.013891'
+      - '0.033346'
       content-length:
       - '43'
       connection:
@@ -200,5 +200,5 @@ http_interactions:
       encoding: UTF-8
       string: "{\"ip_addresses\":[{\"ip_address\":\"1.1.1.1\"}]}"
     http_version: 
-  recorded_at: Mon, 03 Mar 2014 22:38:28 GMT
+  recorded_at: Tue, 04 Mar 2014 17:55:21 GMT
 recorded_with: VCR 2.8.0
