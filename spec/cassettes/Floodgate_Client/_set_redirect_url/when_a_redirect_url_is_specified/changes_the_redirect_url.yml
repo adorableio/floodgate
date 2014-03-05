@@ -23,24 +23,24 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Tue, 04 Mar 2014 17:55:32 GMT
+      - Wed, 05 Mar 2014 18:57:36 GMT
       etag:
-      - "\"5dcd96cc7b45b270738601bce30d703f\""
+      - "\"0486e521692e19559826ecf51f5bbd50\""
       server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       x-request-id:
-      - 3eef7b32-6993-4826-98d5-2f8b9a16117c
+      - cfd29228-c490-419c-9953-dd348a2a7f96
       x-runtime:
-      - '0.025649'
+      - '0.022029'
       content-length:
-      - '126'
+      - '182'
       connection:
       - Close
     body:
       encoding: UTF-8
-      string: "{\"allowed_ip_addresses\":[\"9.109.14.25\",\"164.249.198.56\"],\"filter_traffic\":false,\"name\":\"mutable-test-app\",\"redirect_url\":null}"
+      string: "{\"allowed_ip_addresses\":[\"9.109.14.25\",\"164.249.198.56\"],\"app_id\":\"9d2852cff163507330242460c0ca5eec\",\"errors\":{},\"filter_traffic\":false,\"name\":\"mutable-test-app\",\"redirect_url\":null}"
     http_version: 
-  recorded_at: Tue, 04 Mar 2014 17:55:27 GMT
+  recorded_at: Wed, 05 Mar 2014 18:57:36 GMT
 - request:
     method: get
     uri: https://staging-api.floodgate.io/apps/9d2852cff163507330242460c0ca5eec/status?api_token=f28b5848e158f96e96168aa37f0002f2
@@ -62,24 +62,24 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Tue, 04 Mar 2014 17:55:32 GMT
+      - Wed, 05 Mar 2014 18:57:36 GMT
       etag:
-      - "\"5dcd96cc7b45b270738601bce30d703f\""
+      - "\"0486e521692e19559826ecf51f5bbd50\""
       server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       x-request-id:
-      - 7f53dc8d-b965-4c8d-8cce-a889c3288985
+      - f8a36aab-80b3-4d83-b2d7-f9868ebd7b6b
       x-runtime:
-      - '0.013977'
+      - '0.015542'
       content-length:
-      - '126'
+      - '182'
       connection:
       - Close
     body:
       encoding: UTF-8
-      string: "{\"allowed_ip_addresses\":[\"9.109.14.25\",\"164.249.198.56\"],\"filter_traffic\":false,\"name\":\"mutable-test-app\",\"redirect_url\":null}"
+      string: "{\"allowed_ip_addresses\":[\"9.109.14.25\",\"164.249.198.56\"],\"app_id\":\"9d2852cff163507330242460c0ca5eec\",\"errors\":{},\"filter_traffic\":false,\"name\":\"mutable-test-app\",\"redirect_url\":null}"
     http_version: 
-  recorded_at: Tue, 04 Mar 2014 17:55:28 GMT
+  recorded_at: Wed, 05 Mar 2014 18:57:36 GMT
 - request:
     method: put
     uri: https://staging-api.floodgate.io/apps/9d2852cff163507330242460c0ca5eec
@@ -103,24 +103,24 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Tue, 04 Mar 2014 17:55:32 GMT
+      - Wed, 05 Mar 2014 18:57:36 GMT
       etag:
-      - "\"e095bacd98a20e55860f5d335f67baee\""
+      - "\"c0ed728ee82a560c475fa26bbca8d175\""
       server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       x-request-id:
-      - c8bb9d89-5bef-4ccd-8ea2-e672068fe23e
+      - ac3c9b3b-a755-4d2d-a1ad-4efc35df9cbd
       x-runtime:
-      - '0.053007'
+      - '0.033590'
       content-length:
-      - '142'
+      - '198'
       connection:
       - Close
     body:
       encoding: UTF-8
-      string: "{\"allowed_ip_addresses\":[\"9.109.14.25\",\"164.249.198.56\"],\"filter_traffic\":false,\"name\":\"mutable-test-app\",\"redirect_url\":\"http://example.com\"}"
+      string: "{\"allowed_ip_addresses\":[\"9.109.14.25\",\"164.249.198.56\"],\"app_id\":\"9d2852cff163507330242460c0ca5eec\",\"errors\":{},\"filter_traffic\":false,\"name\":\"mutable-test-app\",\"redirect_url\":\"http://example.com\"}"
     http_version: 
-  recorded_at: Tue, 04 Mar 2014 17:55:28 GMT
+  recorded_at: Wed, 05 Mar 2014 18:57:36 GMT
 - request:
     method: get
     uri: https://staging-api.floodgate.io/apps/9d2852cff163507330242460c0ca5eec/status?api_token=f28b5848e158f96e96168aa37f0002f2
@@ -142,22 +142,22 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Tue, 04 Mar 2014 17:55:33 GMT
+      - Wed, 05 Mar 2014 18:57:37 GMT
       etag:
-      - "\"e095bacd98a20e55860f5d335f67baee\""
+      - "\"c0ed728ee82a560c475fa26bbca8d175\""
       server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       x-request-id:
-      - 4e84be53-b8e5-4f6a-baaa-d6f0a17ffa1e
+      - 8fef6d7f-bfbd-4ca5-9423-d6930a6ab37f
       x-runtime:
-      - '0.014723'
+      - '0.019235'
       content-length:
-      - '142'
+      - '198'
       connection:
       - Close
     body:
       encoding: UTF-8
-      string: "{\"allowed_ip_addresses\":[\"9.109.14.25\",\"164.249.198.56\"],\"filter_traffic\":false,\"name\":\"mutable-test-app\",\"redirect_url\":\"http://example.com\"}"
+      string: "{\"allowed_ip_addresses\":[\"9.109.14.25\",\"164.249.198.56\"],\"app_id\":\"9d2852cff163507330242460c0ca5eec\",\"errors\":{},\"filter_traffic\":false,\"name\":\"mutable-test-app\",\"redirect_url\":\"http://example.com\"}"
     http_version: 
-  recorded_at: Tue, 04 Mar 2014 17:55:28 GMT
+  recorded_at: Wed, 05 Mar 2014 18:57:36 GMT
 recorded_with: VCR 2.8.0

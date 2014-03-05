@@ -21,22 +21,22 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Tue, 04 Mar 2014 17:55:34 GMT
+      - Wed, 05 Mar 2014 18:57:38 GMT
       etag:
-      - "\"dee747427e4c4ad6746155406732f396\""
+      - "\"2cd1552465b6ee4f2e03742795feafba\""
       server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       x-request-id:
-      - 82037e4b-fb57-4357-b11b-8fbe445f78b4
+      - 72a33f14-26ac-4b75-8ada-e5a096d0cca0
       x-runtime:
-      - '0.013876'
+      - '0.015706'
       content-length:
-      - '112'
+      - '168'
       connection:
       - Close
     body:
       encoding: UTF-8
-      string: "{\"allowed_ip_addresses\":[],\"filter_traffic\":true,\"name\":\"floodgate-gem-filter-traffic-true\",\"redirect_url\":null}"
+      string: "{\"allowed_ip_addresses\":[],\"app_id\":\"fa5d63bcf3d6b557eee782c9e61e4002\",\"errors\":{},\"filter_traffic\":true,\"name\":\"floodgate-gem-filter-traffic-true\",\"redirect_url\":null}"
     http_version: 
-  recorded_at: Tue, 04 Mar 2014 17:55:30 GMT
+  recorded_at: Wed, 05 Mar 2014 18:57:38 GMT
 recorded_with: VCR 2.8.0

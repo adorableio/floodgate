@@ -21,13 +21,13 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Tue, 04 Mar 2014 17:55:34 GMT
+      - Wed, 05 Mar 2014 18:57:38 GMT
       server:
       - WEBrick/1.3.1 (Ruby/2.1.0/2013-12-25)
       x-request-id:
-      - 4e23818e-bc63-4b69-ad03-5e834ce8ad09
+      - ab3c801e-21e9-4cea-93d0-7de7bd98410c
       x-runtime:
-      - '0.021808'
+      - '0.007249'
       content-length:
       - '28'
       connection:
@@ -36,5 +36,5 @@ http_interactions:
       encoding: UTF-8
       string: "{\"error\":\"401 Unauthorized\"}"
     http_version: 
-  recorded_at: Tue, 04 Mar 2014 17:55:30 GMT
+  recorded_at: Wed, 05 Mar 2014 18:57:38 GMT
 recorded_with: VCR 2.8.0
