@@ -31,7 +31,7 @@ module Floodgate
     end
 
     def self.my_ip_address
-      conn = Faraday.new(url: 'http://curlmyip.com/')
+      conn = Faraday.new(url: 'http://ip.floodgate.io')
       response = conn.get('')
       value = response.body.strip
       IPAddr.new(value, Socket::AF_INET).to_s
