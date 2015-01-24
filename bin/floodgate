@@ -1,0 +1,57 @@
+#! /usr/bin/env ruby
+$:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+
+require 'commander/import'
+require 'floodgate'
+
+program :name, 'floodgate'
+program :version, Floodgate::VERSION
+program :description, 'floodgate helps control access to your app'
+
+command :allow do |c|
+  c.syntax = 'floodgate allow [email]'
+  c.description = 'Creates a token for the supplied email and allows it through the floodgate'
+  c.action do |args, options|
+    say "#{args[0]} is now allowed through the floodgate with token 768ds678"
+  end
+end
+
+command :deny do |c|
+  c.syntax = 'floodgate deny [email]'
+  c.description = 'Denies access to a user with the supplied email through the floodgate'
+  c.action do |args, options|
+    say "#{args[0]} is now denied entry through the floodgate"
+  end
+end
+
+command :list do |c|
+  c.syntax = 'floodgate list'
+  c.description = 'Lists all of the rules setup for the current floodgate'
+  c.action do
+    say "this guy that guy another guy"
+  end
+end
+
+command :close do |c|
+  c.syntax = 'floodgate close'
+  c.description = 'Closes the floodgate, allowing only configured users to access the site'
+  c.action do
+    say 'The floodgate is now closed'
+  end
+end
+
+command :open do |c|
+  c.syntax = 'floodgate open'
+  c.description = 'Open the floodgate, allowing everyone to access the site'
+  c.action do
+    say 'The floodgate is now open'
+  end
+end
+
+command :status do |c|
+  c.syntax = 'floodgate status'
+  c.description = 'Print the status of the floodgate'
+  c.action do
+    say_error "The floodgate for http://foo.com is now CLOSED"
+  end
+end
