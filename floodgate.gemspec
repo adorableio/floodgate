@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'faraday_middleware', '~> 0.9.0'
   spec.add_runtime_dependency 'hashie', '~> 2.0.5'
   spec.add_runtime_dependency 'commander', '~> 4.2.1'
+  spec.add_runtime_dependency 'terminal-table', '~> 1.4.5'
 
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rake'

@@ -2,6 +2,7 @@
 $:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 
 require 'commander/import'
+require 'terminal-table'
 require 'floodgate'
 
 program :name, 'floodgate'
@@ -28,7 +29,26 @@ command :list do |c|
   c.syntax = 'floodgate list'
   c.description = 'Lists all of the rules setup for the current floodgate'
   c.action do
-    say "this guy that guy another guy"
+    ip_addresses = [] #[['192.168.1.1'], ['10.0.0.3']]
+    users = [['whazzmaster@gmail.com', '564sdf45'], ['jim@adorable.io', 'd978dfs6']]
+
+    if ip_addresses.length > 0
+      table = Terminal::Table.new title: 'Allowed IP Addresses', rows: ip_addresses
+      puts table
+    else
+      puts ""
+      puts "There are no IP addresses configured for access"
+      puts ""
+    end
+
+    if users.length > 0
+      table = Terminal::Table.new title: 'Allowed Email Addressess', rows: users
+      table.align_column 1, :center
+      puts table
+    else
+      puts ""
+      puts "There are no email addresses configured for access"
+    end
   end
 end
 
